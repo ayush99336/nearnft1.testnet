@@ -463,7 +463,7 @@ function App() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {tokens.map((token) => {
                   // Fix broken URLs from previous mints when PINATA_GATEWAY was undefined
-                  let imageUrl = token.metadata?.media || "/placeholder.png";
+                  let imageUrl = token.metadata?.media || "/placeholder.svg";
                   if (imageUrl.includes("https://undefined/ipfs/")) {
                     // Extract the IPFS hash and use current gateway
                     const ipfsHash = imageUrl.split("/ipfs/")[1];
@@ -478,7 +478,7 @@ function App() {
                         className="w-full h-48 object-cover"
                         onError={(e) => {
                           // Fallback for broken images
-                          (e.target as HTMLImageElement).src = "/placeholder.png";
+                          (e.target as HTMLImageElement).src = "/placeholder.svg";
                         }}
                       />
                       <div className="p-3">
